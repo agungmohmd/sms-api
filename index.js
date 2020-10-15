@@ -58,6 +58,7 @@ app.get('/sms', async (req, res) => {
     if (req.query.id) {
         query += ` where id = ${req.query.id}`
     }
+    console.log("someone hit this endpoint")
     res.locals.connection.query(query, function (error, results, fields) {
         if (error) {
             res.send(data)
