@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
     res.locals.connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: '',
+        password: 'smsapi',
         database: 'smsdb'
     });
     res.locals.connection.connect();
@@ -97,7 +97,7 @@ app.post('/sms', function (req, res) {
                     // console.log(resx.data)
                     // res.send(resx.data)
                 })
-                .catch(err => res.send(err))
+                //.catch(err => res.send(err))
         })
     } else {
         data.message = "Mohon Lengkapi Data"
