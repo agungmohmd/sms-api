@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
     res.locals.connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: '',
+        password: 'smsapi',
         database: 'smsdb'
     });
     res.locals.connection.connect();
