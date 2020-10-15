@@ -60,8 +60,9 @@ app.get('/sms', async (req, res) => {
     }
     res.locals.connection.query(query, function (error, results, fields) {
         if (error) {
-            res.send(data)
+            throw data
         };
+        // if (error) throw error;
         data.message = "OK";
         data.status = true;
         data.data = results;
