@@ -128,6 +128,29 @@ app.get('/receipt', async (req, res) => {
     })
 });
 
+app.get('/receipt-list', async (req, res) => {
+    var data = {
+        "message": "",
+        "status": false,
+        "data": [],
+        "response_code": 200
+    }
+    let query = `select * from smsdlr`
+    if (req.query.id) {
+        query += ` where id = ${req.query.id}`
+    }
+    res.locals.connection.query(query, function (error, results, fields) {
+        if (error) {
+            throw data
+        };
+        // if (error) throw error;
+        data.message = "OK";
+        data.status = true;
+        data.data = results;
+        res.send(data);
+    });
+});
+
 // function handleParams(params, res) {
 //     if (params.status !== 'delivered') {
 //         console.log('Fail: ' + params.status);
