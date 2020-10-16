@@ -117,6 +117,7 @@ app.get('/receipt', async (req, res) => {
     let saveddlr = JSON.stringify(req.query)
     let query = `INSERT INTO smsdlr (dlr) 
             VALUES ('${saveddlr}')`
+            console.log(query)
     res.locals.connection.query(query, function (error, results, fields) {
         if (error) {
             res.send(data)
