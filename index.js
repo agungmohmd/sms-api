@@ -88,7 +88,7 @@ app.post('/sms', function (req, res) {
             if (error) {
                 res.send(data)
             }
-            let ep = `http://www.myvaluefirst.com/smpp/sendsms?to=${req.body.to}&text=${req.body.message}&username=demoindo1&from=${req.body.from}&password=http1313`
+            let ep = `http://www.myvaluefirst.com/smpp/sendsms?to=${req.body.to}&text=${req.body.message}&username=demoindo1&from=${req.body.from}&password=http1313&dlr-url=api.agungmohmd.xyz/receipt`
             axios.get(ep)
                 .then(resx => {
                     data.message = resx.data;
